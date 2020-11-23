@@ -28,6 +28,12 @@ string  DateTime::getToday()
 {
 	char arr[SIZE];
 	strftime(arr, SIZE, "%d %B %Y, %A", &now_date);
+	int i = 0;
+	while (arr[i])                           // пока не конец строки
+	{
+		arr[i] = (char)tolower(arr[i]);  // преобразовать текущий символ строки в строчный
+		i++;                                   // инкремент индекса символов в строке
+	}
 	return arr;
 };
 
@@ -48,7 +54,12 @@ string DateTime::getFuture(unsigned int N)
 	future_date = now_date;
 	future_date.tm_mday = now_date.tm_mday + N;
 	mktime(&future_date);
-	strftime(arr, SIZE, "%d %B %Y, %A", &future_date);
+	strftime(arr, SIZE, "%d %B %Y, %A", &future_date);int i = 0;
+	while (arr[i])                           // пока не конец строки
+	{
+		arr[i] = (char)tolower(arr[i]);  // преобразовать текущий символ строки в строчный
+		i++;                                   // инкремент индекса символов в строке
+	}
 	return arr;
 }
 
@@ -60,6 +71,12 @@ string DateTime::getPast(unsigned int N)
 	future_date.tm_mday = now_date.tm_mday - N;
 	mktime(&future_date);
 	strftime(arr, SIZE, "%d %B %Y, %A", &future_date);
+	int i = 0;
+	while (arr[i])                           // пока не конец строки
+	{
+		arr[i] = (char)tolower(arr[i]);  // преобразовать текущий символ строки в строчный
+		i++;                                   // инкремент индекса символов в строке
+	}
 	return arr;
 }
 
